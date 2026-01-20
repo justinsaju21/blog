@@ -23,8 +23,7 @@ export const queries = {
     excerpt,
     publishedAt,
     readTime,
-    "category": category->title,
-    "categorySlug": category->slug.current,
+    "category": categories[0]->title,
     "author": author->{name, image},
     mainImage
   }`,
@@ -38,20 +37,20 @@ export const queries = {
     body,
     publishedAt,
     readTime,
-    "category": category->title,
+    "category": categories[0]->title,
     mainImage,
     "author": author->{name, image, bio}
   }`,
 
   // Get posts by category
-  postsByCategory: `*[_type == "post" && category->slug.current == $category] | order(publishedAt desc) {
+  postsByCategory: `*[_type == "post" && categories[0]->title == $category] | order(publishedAt desc) {
     _id,
     title,
     slug,
     excerpt,
     publishedAt,
     readTime,
-    "category": category->title,
+    "category": categories[0]->title,
     mainImage
   }`,
 

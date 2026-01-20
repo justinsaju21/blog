@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Twitter, Mail, ArrowUpRight, Heart } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, ArrowUpRight, Heart } from "lucide-react";
 
 const socialLinks = [
-    { href: "https://github.com/justinjose-code", icon: Github, label: "GitHub" },
-    { href: "https://linkedin.com/in/justinjose-code", icon: Linkedin, label: "LinkedIn" },
-    { href: "https://twitter.com/justinjose_code", icon: Twitter, label: "Twitter" },
-    { href: "mailto:hello@justinjacobsaju.com", icon: Mail, label: "Email" },
+    { href: "https://github.com/justinsaju21", icon: Github, label: "GitHub" },
+    { href: "https://www.linkedin.com/in/justin-jacob-saju-742b28270/", icon: Linkedin, label: "LinkedIn" },
+    { href: "https://instagram.com/justinnnn_21", icon: Instagram, label: "Instagram" },
+    { href: "mailto:justinsaju21@gmail.com", icon: Mail, label: "Email" },
 ];
 
 const footerLinks = [

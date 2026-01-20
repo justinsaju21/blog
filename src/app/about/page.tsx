@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail, Instagram } from "lucide-react";
 
 export const metadata = {
     title: "About | Justin Jacob Saju",
@@ -34,10 +34,10 @@ export default function AboutPage() {
                     </p>
 
                     <div className="flex justify-center gap-4">
-                        <a href="https://github.com" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Github size={20} /></a>
-                        <a href="https://linkedin.com" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Linkedin size={20} /></a>
-                        <a href="https://twitter.com" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Twitter size={20} /></a>
-                        <a href="mailto:hello@example.com" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Mail size={20} /></a>
+                        <a href="https://github.com/justinsaju21" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Github size={20} /></a>
+                        <a href="https://www.linkedin.com/in/justin-jacob-saju-742b28270/" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Linkedin size={20} /></a>
+                        <a href="https://instagram.com/justinnnn_21" target="_blank" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Instagram size={20} /></a>
+                        <a href="mailto:justinsaju21@gmail.com" className="p-3 rounded-full bg-white/5 hover:bg-[#7c3aed]/20 hover:text-[#a78bfa] transition-colors"><Mail size={20} /></a>
                     </div>
                 </div>
 

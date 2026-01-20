@@ -73,7 +73,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                 >
                                     <Link href={`/blog/${post.slug?.current || ""}`}>
-                                        <div className="glass rounded-2xl p-8 h-full hover:glow transition-all duration-500 group cursor-pointer relative overflow-hidden">
+                                        <div className="glass rounded-2xl p-8 h-full hover:glow hover:scale-[1.02] transition-all duration-500 group cursor-pointer relative overflow-hidden">
                                             {/* Hover gradient effect */}
                                             <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -104,10 +104,11 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                                             <Calendar className="w-4 h-4" />
                                                             {formatDate(post.publishedAt)}
                                                         </span>
-                                                        {post.readTime && (
-                                                            <span className="flex items-center gap-1.5">
-                                                                <Clock className="w-4 h-4" />
-                                                                {post.readTime}
+                                                        {/* Author Name - Added per request */}
+                                                        {post.author?.name && (
+                                                            <span className="hidden md:flex items-center gap-1.5 text-accent-cyan/80">
+                                                                <span className="w-1 h-1 rounded-full bg-accent-cyan/50" />
+                                                                {post.author.name}
                                                             </span>
                                                         )}
                                                     </div>

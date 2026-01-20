@@ -8,7 +8,6 @@ export interface Post {
     body?: any[]; // Portable Text
     publishedAt: string;
     readTime: string;
-    readTime: string;
     categories: string[]; // Updated for multi-category support
     category: string; // Deprecated but kept for backward compatibility if needed
     categorySlug?: string;

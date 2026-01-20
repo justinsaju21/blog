@@ -33,7 +33,7 @@ export function Newsletter() {
                 setStatus('error');
                 setMessage(data.error || 'Something went wrong.');
             }
-        } catch (error) {
+        } catch (_error) {
             setStatus('error');
             setMessage('Failed to subscribe. Please try again.');
         }
@@ -90,16 +90,21 @@ export function Newsletter() {
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
-                                    className="flex-1 px-5 py-3 rounded-xl bg-midnight-light border border-glass-border text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan transition-colors"
+                                    disabled={status === 'loading'}
+                                    className="flex-1 px-5 py-3 rounded-xl bg-midnight-light border border-glass-border text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan transition-colors disabled:opacity-50"
                                 />
                                 <button
                                     type="submit"
-                                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-accent-cyan to-accent-blue text-midnight font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 glow"
+                                    disabled={status === 'loading'}
+                                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-accent-cyan to-accent-blue text-midnight font-semibold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 glow disabled:opacity-50"
                                 >
                                     <Send className="w-4 h-4" />
-                                    Subscribe
+                                    {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
                                 </button>
                             </form>
+                        )}
+                        {status === 'error' && message && (
+                            <p className="text-red-400 text-sm mt-4">{message}</p>
                         )}
 
                         {/* Privacy Note */}

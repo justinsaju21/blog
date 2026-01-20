@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight, Pen } from "lucide-react";
+import { Calendar, ArrowRight, Pen } from "lucide-react";
 import Link from "next/link";
 import type { Post } from "@/lib/sanity.types";
 

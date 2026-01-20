@@ -25,9 +25,11 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     }
 }
 
+import { Post } from '@/lib/sanity.types';
+
 export async function generateStaticParams() {
     const posts = await client.fetch(queries.allPosts);
-    return posts.map((post: any) => ({ slug: post.slug.current }))
+    return posts.map((post: Post) => ({ slug: post.slug.current }))
 }
 
 export default async function BlogPost({ params }: { params: { slug: string } }) {

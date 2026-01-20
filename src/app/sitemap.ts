@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { client, queries } from '@/lib/sanity.client'
+import { client } from '@/lib/sanity.client'
 
 // Use a simplified query for the sitemap to fetch only what's needed
 const sitemapQuery = `*[_type == "post" && !(_id in path("drafts.**"))] {

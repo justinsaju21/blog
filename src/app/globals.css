@@ -22,20 +22,22 @@
 
   /* Neutral Colors */
   --foreground: #ffffff;
-  --foreground-muted: #e2e8f0;
-  /* Lighter slate for better contrast on dark */
-  --foreground-dim: #94a3b8;
+  --foreground-muted: #f1f5f9;
+  /* Slate-100: Much brighter */
+  --foreground-dim: #cbd5e1;
+  /* Slate-300: Lighter, more readable */
 
   /* Background - Deep Dark Purple/Black */
   --background: #030014;
-  /* Deep space purple-black */
   --midnight: #0a051d;
-  --midnight-light: #151030;
+  --midnight-light: #1e1b4b;
+  /* Indigo-950: Visibly lighter than bg */
 
   /* Glassmorphism */
-  --glass-bg: rgba(13, 10, 30, 0.6);
-  --glass-border: rgba(139, 92, 246, 0.2);
-  /* Purple border */
+  --glass-bg: rgba(30, 27, 75, 0.7);
+  /* More opaque, slightly lighter purple */
+  --glass-border: rgba(139, 92, 246, 0.5);
+  /* Stronger border for separation */
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #c084fc 0%, #7c3aed 100%);

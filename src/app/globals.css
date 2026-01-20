@@ -44,6 +44,37 @@
   --gradient-accent: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
 }
 
+/* ===== LIGHT MODE ===== */
+[data-theme="light"] {
+  /* Core Colors */
+  --midnight: #f8fafc;
+  --midnight-light: #f1f5f9;
+  --cobalt: #e2e8f0;
+  --cobalt-light: #cbd5e1;
+
+  /* Accent Colors - Keep Purple for brand consistency */
+  --accent-cyan: #7c3aed;
+  --accent-blue: #6d28d9;
+  --accent-purple: #5b21b6;
+  --accent-pink: #8b5cf6;
+
+  /* Neutral Colors */
+  --foreground: #0f172a;
+  --foreground-muted: #334155;
+  --foreground-dim: #64748b;
+
+  /* Background */
+  --background: #ffffff;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(248, 250, 252, 0.9);
+  --glass-border: rgba(139, 92, 246, 0.3);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+}
+
 /* ===== BASE STYLES ===== */
 * {
   box-sizing: border-box;

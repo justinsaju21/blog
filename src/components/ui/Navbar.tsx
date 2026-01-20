@@ -5,6 +5,8 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
+import { ThemeToggle } from "../ThemeToggle";
+
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
@@ -57,6 +59,7 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <ThemeToggle />
             </div>
 
             {/* CTA Button */}

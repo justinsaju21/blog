@@ -23,7 +23,7 @@ export const queries = {
     excerpt,
     publishedAt,
     readTime,
-    "category": categories[0]->title,
+    "categories": categories[]->title,
     "author": author->{name, image},
     mainImage
   }`,
@@ -37,7 +37,7 @@ export const queries = {
     body,
     publishedAt,
     readTime,
-    "category": categories[0]->title,
+    "categories": categories[]->title,
     mainImage,
     "author": author->{name, image, bio}
   }`,

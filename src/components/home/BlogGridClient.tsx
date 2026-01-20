@@ -78,14 +78,19 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                             <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                                             <div className="relative z-10">
-                                                {/* Category Badge */}
-                                                <span
-                                                    className={`inline-block px-3 py-1 rounded-full text-xs font-medium border mb-5 ${categoryColors[post.category] ||
-                                                        "bg-cobalt/50 text-foreground-muted border-cobalt"
-                                                        }`}
-                                                >
-                                                    {post.category || "General"}
-                                                </span>
+                                                {/* Category Badges */}
+                                                <div className="flex flex-wrap gap-2 mb-5">
+                                                    {(post.categories || ["General"]).map((cat: string) => (
+                                                        <span
+                                                            key={cat}
+                                                            className={`inline-block px-3 py-1 rounded-full text-xs font-medium border ${categoryColors[cat] ||
+                                                                "bg-cobalt/50 text-foreground-muted border-cobalt"
+                                                                }`}
+                                                        >
+                                                            {cat}
+                                                        </span>
+                                                    ))}
+                                                </div>
 
                                                 {/* Title */}
                                                 <h3 className="heading-sm mb-4 group-hover:text-accent-cyan transition-colors duration-300">

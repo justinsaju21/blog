@@ -41,9 +41,13 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             <div className="max-w-3xl mx-auto">
                 {/* Header */}
                 <header className="mb-12 text-center">
-                    {post.category && (
-                        <div className="inline-block px-3 py-1 mb-6 text-xs font-medium rounded-full bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">
-                            {post.category}
+                    {post.categories && (
+                        <div className="flex flex-wrap justify-center gap-2 mb-6">
+                            {post.categories.map((cat: string) => (
+                                <div key={cat} className="px-3 py-1 text-xs font-medium rounded-full bg-accent-cyan/10 text-accent-cyan border border-accent-cyan/20">
+                                    {cat}
+                                </div>
+                            ))}
                         </div>
                     )}
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">

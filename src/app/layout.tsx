@@ -40,7 +40,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <GoogleAdsense pId="ca-pub-XXXXXXXXXXXXXXXX" />
+        <GoogleAdsense pId="ca-pub-6510223775923718" />
       </body>
     </html>
   );

@@ -42,7 +42,7 @@ export function Navbar() {
               </div>
               <div className="flex items-baseline gap-1.5">
                 <span className="font-bold text-lg text-foreground tracking-tight">Justin Jacob</span>
-                <span className="font-light text-foreground-muted text-base">Saju</span>
+                <span className="font-bold text-lg text-foreground tracking-tight">Saju</span>
               </div>
             </Link>
 

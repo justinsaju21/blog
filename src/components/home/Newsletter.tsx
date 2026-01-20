@@ -7,13 +7,35 @@ import { useState } from "react";
 export function Newsletter() {
     const [email, setEmail] = useState("");
     const [subscribed, setSubscribed] = useState(false);
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+    const [message, setMessage] = useState('');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // TODO: Integrate with email service (Mailchimp, ConvertKit, etc.)
-        if (email) {
-            setSubscribed(true);
-            setEmail("");
+        if (!email) return;
+
+        setStatus('loading');
+
+        try {
+            const res = await fetch('/api/subscribe', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
+
+            const data = await res.json();
+
+            if (res.ok) {
+                setSubscribed(true);
+                setStatus('success');
+                setEmail("");
+            } else {
+                setStatus('error');
+                setMessage(data.error || 'Something went wrong.');
+            }
+        } catch (error) {
+            setStatus('error');
+            setMessage('Failed to subscribe. Please try again.');
         }
     };
 

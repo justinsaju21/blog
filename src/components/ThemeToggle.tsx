@@ -4,7 +4,12 @@ import { Sun, Moon } from "lucide-react";
 import { useTheme } from "./ThemeProvider";
 
 export function ThemeToggle() {
-    const { theme, toggleTheme } = useTheme();
+    const context = useTheme();
+
+    // Don't render until context is available
+    if (!context) return null;
+
+    const { theme, toggleTheme } = context;
 
     return (
         <button

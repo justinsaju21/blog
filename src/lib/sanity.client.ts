@@ -25,6 +25,7 @@ export const queries = {
     readTime,
     "category": category->title,
     "categorySlug": category->slug.current,
+    "author": author->{name, image},
     mainImage
   }`,
 

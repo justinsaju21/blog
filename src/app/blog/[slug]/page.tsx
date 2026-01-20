@@ -89,7 +89,36 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
                 {/* Content */}
                 <div className="prose prose-invert prose-lg max-w-none prose-headings:text-foreground prose-a:text-accent-cyan hover:prose-a:text-accent-purple transition-colors">
-                    <PortableText value={post.body} />
+                    <PortableText
+                        value={post.body}
+                        components={{
+                            block: {
+                                h1: ({ children }) => <h1 className="text-3xl font-bold mt-8 mb-4 text-foreground">{children}</h1>,
+                                h2: ({ children }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-foreground">{children}</h2>,
+                                h3: ({ children }) => <h3 className="text-xl font-bold mt-6 mb-3 text-foreground">{children}</h3>,
+                                h4: ({ children }) => <h4 className="text-lg font-bold mt-6 mb-3 text-foreground">{children}</h4>,
+                                normal: ({ children }) => <p className="mb-4 leading-relaxed text-foreground-muted">{children}</p>,
+                                blockquote: ({ children }) => <blockquote className="border-l-4 border-accent-cyan pl-4 italic my-4 text-foreground-dim">{children}</blockquote>,
+                            },
+                            list: {
+                                bullet: ({ children }) => <ul className="list-disc pl-5 mb-4 space-y-2 text-foreground-muted">{children}</ul>,
+                                number: ({ children }) => <ol className="list-decimal pl-5 mb-4 space-y-2 text-foreground-muted">{children}</ol>,
+                            },
+                            marks: {
+                                strong: ({ children }) => <strong className="font-bold text-foreground">{children}</strong>,
+                                em: ({ children }) => <em className="italic text-foreground-dim">{children}</em>,
+                                code: ({ children }) => <code className="bg-white/10 rounded px-1 py-0.5 text-accent-pink font-mono text-sm">{children}</code>,
+                                link: ({ value, children }) => {
+                                    const target = (value?.href || '').startsWith('http') ? '_blank' : undefined
+                                    return (
+                                        <a href={value?.href} target={target} rel={target === '_blank' ? 'noindex nofollow' : undefined} className="text-accent-cyan hover:underline transition-all">
+                                            {children}
+                                        </a>
+                                    )
+                                },
+                            },
+                        }}
+                    />
                 </div>
             </div>
         </article>

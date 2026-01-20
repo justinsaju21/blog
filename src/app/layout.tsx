@@ -25,6 +25,9 @@ export const metadata: Metadata = {
     description: "Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions.",
     type: "website",
   },
+  other: {
+    "google-adsense-account": "ca-pub-6510223775923718",
+  },
 };
 
 export default function RootLayout({

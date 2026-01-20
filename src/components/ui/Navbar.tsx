@@ -65,7 +65,7 @@ export function Navbar() {
             {/* CTA Button */}
             <div className="hidden md:block">
               <Link
-                href="#newsletter"
+                href="/#newsletter"
                 className={`flex items-center gap-1.5 px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-[0_0_20px_-5px_rgba(124,58,237,0.5)] ${isScrolled
                   ? "bg-accent-purple text-white hover:bg-accent-purple/90"
                   : "bg-accent-purple text-white hover:bg-accent-purple/90"
@@ -104,7 +104,7 @@ export function Navbar() {
                   </Link>
                 ))}
                 <Link
-                  href="#newsletter"
+                  href="/#newsletter"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block py-2.5 px-4 mt-2 bg-accent-purple text-white font-semibold rounded-lg text-center"
                 >

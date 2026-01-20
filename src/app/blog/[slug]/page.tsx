@@ -7,7 +7,7 @@ import { Calendar, Clock, User } from 'lucide-react'
 // Revalidate every 60 seconds
 export const revalidate = 60
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const post = await client.fetch(queries.postBySlug, { slug })
     if (!post) return {}
@@ -32,7 +32,7 @@ export async function generateStaticParams() {
     return posts.map((post: Post) => ({ slug: post.slug.current }))
 }
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
+export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
     const post = await client.fetch(queries.postBySlug, { slug })
 

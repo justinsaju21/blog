@@ -15,25 +15,22 @@ const ecosystemLinks = [
     description: "Hub of my experiments & builds"
   },
   {
-    href: "https://lab.justinsaju.me",
-    label: "The Lab",
-    icon: FlaskConical,
-    description: "Interactive demos & POCs",
-    external: true
+    href: "/hardware",
+    label: "Hardware",
+    icon: CpuIcon,
+    description: "Embedded, VLSI & IoT"
   },
   {
-    href: "https://tools.justinsaju.me",
-    label: "Dev Tools",
-    icon: Wrench,
-    description: "Calculators & Utilities",
-    external: true
+    href: "/software",
+    label: "Software",
+    icon: Laptop2,
+    description: "Web Apps & AI Tools"
   },
   {
-    href: "https://notes.justinsaju.me",
-    label: "Notes",
-    icon: NotebookPen,
-    description: "Digital garden & cheatsheets",
-    external: true
+    href: "/learn",
+    label: "Learn",
+    icon: GraduationCap,
+    description: "Tutorials & Cheatsheets"
   },
 ];
 

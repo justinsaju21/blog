@@ -1,15 +1,17 @@
 import { BlogGrid } from "@/components/home/BlogGrid";
-
-export const metadata = {
-    title: "Blog | Justin Jacob Saju",
-    description: "Read my latest thoughts on Embedded Systems, VLSI, and Tech.",
-};
+import { Newsletter } from "@/components/home/Newsletter";
+import { AdBanner } from "@/components/ui/AdBanner";
+import { BlogHeader } from "@/components/BlogHeader";
 
 export default function BlogPage() {
     return (
-        <main className="min-h-screen pt-24 pb-20">
-            {/* BlogGrid already has its own header, so we just render it */}
-            <BlogGrid />
-        </main>
+        <div className="min-h-screen pt-32 pb-20 px-6" style={{ backgroundColor: "var(--background)" }}>
+            <div className="max-w-5xl mx-auto">
+                <BlogHeader />
+                <AdBanner slot="after-hero" />
+                <BlogGrid />
+                <Newsletter />
+            </div>
+        </div>
     );
 }

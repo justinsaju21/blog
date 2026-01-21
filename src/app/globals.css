@@ -52,27 +52,27 @@
   --cobalt: #e2e8f0;
   --cobalt-light: #cbd5e1;
 
-  /* Accent Colors - Keep Purple for brand consistency */
-  --accent-cyan: #7c3aed;
-  --accent-blue: #6d28d9;
-  --accent-purple: #5b21b6;
-  --accent-pink: #8b5cf6;
+  /* Accent Colors - Darker for better contrast on white */
+  --accent-cyan: #6d28d9;
+  --accent-blue: #5b21b6;
+  --accent-purple: #4c1d95;
+  --accent-pink: #7c3aed;
 
-  /* Neutral Colors */
+  /* Neutral Colors - Better contrast */
   --foreground: #0f172a;
-  --foreground-muted: #334155;
-  --foreground-dim: #64748b;
+  --foreground-muted: #1e293b;
+  --foreground-dim: #475569;
 
   /* Background */
-  --background: #ffffff;
+  --background: #fafafa;
 
-  /* Glassmorphism */
-  --glass-bg: rgba(248, 250, 252, 0.9);
-  --glass-border: rgba(139, 92, 246, 0.3);
+  /* Glassmorphism - Higher contrast for light mode */
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(124, 58, 237, 0.25);
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
-  --gradient-accent: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+  /* Gradients - Darker for visibility */
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
+  --gradient-accent: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
 }
 
 /* ===== BASE STYLES ===== */
@@ -93,9 +93,19 @@ body {
   width: 100%;
   /* Mesh Gradient Background for whole site */
   background-image:
-    radial-gradient(at 0% 0%, rgba(6, 182, 212, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+    radial-gradient(at 0% 0%, rgba(167, 139, 250, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.12) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(124, 58, 237, 0.08) 0px, transparent 50%);
+  background-attachment: fixed;
+}
+
+/* Light mode body background */
+[data-theme="light"] body {
+  background: var(--background);
+  background-image:
+    radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.06) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(167, 139, 250, 0.05) 0px, transparent 50%);
   background-attachment: fixed;
 }
 
@@ -195,7 +205,31 @@ body {
     0 0 60px rgba(6, 182, 212, 0.05);
 }
 
-/* ===== ANIMATIONS ===== */
+/* ===== LIGHT MODE OVERRIDES ===== */
+[data-theme="light"] .glass {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(124, 58, 237, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="light"] .glass-card:hover {
+  border-color: rgba(124, 58, 237, 0.4);
+  box-shadow:
+    0 0 30px rgba(124, 58, 237, 0.15),
+    0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .glow {
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.2),
+    0 0 40px rgba(124, 58, 237, 0.1);
+}
 
 @keyframes float {
 
@@ -260,4 +294,62 @@ body {
 .body-lg {
   font-size: clamp(1.1rem, 1.5vw, 1.25rem);
   line-height: 1.6;
+}
+
+/* ===== MOBILE RESPONSIVE FIXES ===== */
+
+/* Prevent horizontal overflow */
+@media (max-width: 768px) {
+
+  .glass-card,
+  .glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .heading-xl {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .heading-lg {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  /* Fix card padding on mobile */
+  .glass-card {
+    padding: 1rem;
+  }
+
+  /* Ensure images don't overflow */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Fix navigation spacing */
+  nav {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .heading-xl {
+    font-size: 1.75rem;
+  }
+
+  .heading-lg {
+    font-size: 1.5rem;
+  }
+
+  .body-lg {
+    font-size: 1rem;
+  }
+
+  /* Reduce padding on very small screens */
+  .px-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }

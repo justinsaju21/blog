@@ -2,18 +2,12 @@
 
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, CpuIcon, Laptop2, GraduationCap, FolderGit2 } from "lucide-react";
+import { Menu, X, ChevronDown, CpuIcon, Laptop2, GraduationCap } from "lucide-react";
 import { useState } from "react";
 
 import { ThemeToggle } from "../ThemeToggle";
 
 const ecosystemLinks = [
-  {
-    href: "/projects",
-    label: "Projects",
-    icon: FolderGit2,
-    description: "Hub of my experiments & builds"
-  },
   {
     href: "/hardware",
     label: "Hardware",
@@ -128,7 +122,6 @@ export function Navbar() {
                         <Link
                           key={link.label}
                           href={link.href}
-                          target={link.external ? "_blank" : undefined}
                           className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 transition-colors group/item"
                         >
                           <div className="mt-1 p-1.5 rounded-md bg-accent-purple/10 text-accent-cyan group-hover/item:bg-accent-purple/20 transition-colors">
@@ -215,7 +208,6 @@ export function Navbar() {
                     <Link
                       key={link.label}
                       href={link.href}
-                      target={link.external ? "_blank" : undefined}
                       onClick={() => setMobileMenuOpen(false)}
                       style={{ color: "var(--foreground-muted)" }}
                       className="flex items-center gap-2 py-2.5 px-4 hover:bg-white/5 rounded-lg transition-colors"

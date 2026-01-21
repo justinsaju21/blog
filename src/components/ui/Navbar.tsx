@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, FlaskConical, Wrench, NotebookPen, FolderGit2 } from "lucide-react";
+import { Menu, X, ChevronDown, CpuIcon, Laptop2, GraduationCap, FolderGit2 } from "lucide-react";
 import { useState } from "react";
 
 import { ThemeToggle } from "../ThemeToggle";

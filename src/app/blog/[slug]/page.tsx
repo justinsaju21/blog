@@ -5,6 +5,8 @@ import { notFound } from 'next/navigation'
 import { Calendar, Clock, User } from 'lucide-react'
 import { AdBanner } from '@/components/ui/AdBanner'
 import { SidebarAdLayout } from '@/components/ui/SidebarAdLayout'
+import { ReadingProgressBar } from '@/components/ui/ReadingProgressBar'
+import { CodeBlock } from '@/components/ui/CodeBlock'
 
 // Revalidate every 60 seconds
 export const revalidate = 60
@@ -42,6 +44,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
 
     return (
         <SidebarAdLayout>
+            <ReadingProgressBar readTime={post.readTime} />
             <article className="min-h-screen pt-32 pb-20 px-6">
                 <div className="max-w-3xl mx-auto">
                     {/* Header */}
@@ -128,6 +131,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                             </a>
                                         )
                                     },
+                                },
+                                types: {
+                                    code: ({ value }) => (
+                                        <CodeBlock
+                                            code={value.code || ''}
+                                            language={value.language}
+                                        />
+                                    ),
                                 },
                             }}
                         />

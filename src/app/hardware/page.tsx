@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Cpu, ChevronRight, CircuitBoard, Wifi, Zap } from "lucide-react";
+import { Cpu, ChevronRight, CircuitBoard } from "lucide-react";
 import { AdBanner } from "@/components/ui/AdBanner";
 import Link from "next/link";
 import { TiltCard } from "@/components/ui/tilt-card";
 
-const hardwareProjects: { title: string; description: string; tags: string[]; icon: any; color: string; }[] = [
+const hardwareProjects: { title: string; description: string; tags: string[]; icon: React.ElementType; color: string; }[] = [
     // Add your hardware projects here
 ];
 

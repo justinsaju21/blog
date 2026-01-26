@@ -23,16 +23,21 @@ export function Newsletter() {
                 body: JSON.stringify({ email }),
             });
 
-            const data = await res.json();
-
-            if (res.ok) {
-                setSubscribed(true);
-                setStatus('success');
-                setEmail("");
-            } else {
+            if (res.status === 400) {
+                const data = await res.json();
                 setStatus('error');
-                setMessage(data.error || 'Something went wrong.');
+                setMessage(data.error);
+                return;
             }
+            if (!res.ok) {
+                throw new Error("Failed to subscribe");
+            }
+
+            // If res.ok, proceed with success
+            setSubscribed(true);
+            setStatus('success');
+            setEmail("");
+
         } catch (_error) {
             setStatus('error');
             setMessage('Failed to subscribe. Please try again.');

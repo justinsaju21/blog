@@ -1,6 +1,6 @@
 "use client";
 
-import { AdBanner } from "./AdBanner";
+// import { AdBanner } from "./AdBanner";
 
 interface SidebarAdLayoutProps {
     children: React.ReactNode;

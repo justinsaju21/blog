@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, ChevronRight, BookOpen, FileCode, Lightbulb, Map } from "lucide-react";
+import { GraduationCap, ChevronRight, BookOpen } from "lucide-react";
 import { AdBanner } from "@/components/ui/AdBanner";
 import Link from "next/link";
 import { TiltCard } from "@/components/ui/tilt-card";
 
-const learnTopics: { title: string; description: string; tags: string[]; icon: any; color: string; }[] = [
+const learnTopics: { title: string; description: string; tags: string[]; icon: React.ElementType; color: string; }[] = [
     // Add your learn topics here
 ];
 

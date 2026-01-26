@@ -33,7 +33,11 @@ export async function POST(request: Request) {
         }
 
         return NextResponse.json({ success: true, message: 'Subscribed successfully!' });
-    } catch (_error) {
-        return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
+    } catch (error) {
+        console.error("Subscription error:", error);
+        return NextResponse.json(
+            { error: "Failed to subscribe" },
+            { status: 500 }
+        );
     }
 }

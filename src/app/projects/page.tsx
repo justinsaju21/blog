@@ -99,7 +99,7 @@ export default function ProjectsPage() {
                             </div>
                             <h3 className="text-xl font-medium text-foreground mb-2">Projects Incoming...</h3>
                             <p className="text-foreground-dim max-w-md mx-auto">
-                                I'm currently curating my best work. Stay tuned for live demos and case studies!
+                                I&apos;m currently curating my best work. Stay tuned for live demos and case studies!
                             </p>
                         </div>
                     )}

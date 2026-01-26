@@ -1,12 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Laptop2, ChevronRight, Globe, Bot, Palette, Terminal } from "lucide-react";
+import { Laptop2, ChevronRight, Terminal } from "lucide-react";
 import { AdBanner } from "@/components/ui/AdBanner";
 import Link from "next/link";
 import { TiltCard } from "@/components/ui/tilt-card";
 
-const softwareProjects: { title: string; description: string; tags: string[]; icon: any; color: string; link?: string; }[] = [
+const softwareProjects: { title: string; description: string; tags: string[]; icon: React.ElementType; color: string; link?: string; }[] = [
     // Add your software projects here
 ];
 

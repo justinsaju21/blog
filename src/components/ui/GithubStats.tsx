@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Github, Star, GitFork } from "lucide-react";
+import { Github } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface GithubData {

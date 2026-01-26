@@ -5,35 +5,8 @@ import { GraduationCap, ChevronRight, BookOpen, FileCode, Lightbulb, Map } from 
 import Link from "next/link";
 import { TiltCard } from "@/components/ui/tilt-card";
 
-const learnTopics = [
-    {
-        title: "5G Fundamentals",
-        description: "From OFDM to beamforming - the building blocks of 5G NR.",
-        tags: ["5G", "Wireless", "Theory"],
-        icon: Lightbulb,
-        color: "#22d3ee",
-    },
-    {
-        title: "Verilog Cheatsheet",
-        description: "Quick reference for synthesizable Verilog constructs.",
-        tags: ["Verilog", "VLSI", "Reference"],
-        icon: FileCode,
-        color: "#a78bfa",
-    },
-    {
-        title: "React Patterns",
-        description: "Common patterns for building scalable React apps.",
-        tags: ["React", "JavaScript", "Patterns"],
-        icon: BookOpen,
-        color: "#f472b6",
-    },
-    {
-        title: "Engineering Roadmap",
-        description: "My personal learning path for ECE & CS.",
-        tags: ["Career", "Learning", "Guide"],
-        icon: Map,
-        color: "#4ade80",
-    },
+const learnTopics: { title: string; description: string; tags: string[]; icon: any; color: string; }[] = [
+    // Add your learn topics here
 ];
 
 export default function LearnPage() {
@@ -61,54 +34,66 @@ export default function LearnPage() {
 
                 {/* Topics Grid */}
                 <div className="grid md:grid-cols-2 gap-6">
-                    {learnTopics.map((topic, index) => (
-                        <motion.div
-                            key={topic.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            <TiltCard>
-                                <div
-                                    className="p-6 rounded-2xl h-full group cursor-pointer"
-                                    style={{
-                                        backgroundColor: "rgba(30, 27, 75, 0.6)",
-                                        border: "1px solid rgba(139, 92, 246, 0.3)",
-                                        backdropFilter: "blur(12px)",
-                                    }}
-                                >
-                                    <div className="flex items-start justify-between mb-4">
-                                        <div
-                                            className="p-3 rounded-xl"
-                                            style={{ backgroundColor: `${topic.color}20` }}
-                                        >
-                                            <topic.icon
-                                                className="w-6 h-6"
-                                                style={{ color: topic.color }}
-                                            />
-                                        </div>
-                                        <ChevronRight className="w-5 h-5 text-foreground-dim group-hover:translate-x-1 group-hover:text-accent-cyan transition-all" />
-                                    </div>
-                                    <h3 className="text-xl font-bold text-foreground mb-2">
-                                        {topic.title}
-                                    </h3>
-                                    <p className="text-foreground-muted text-sm mb-4">
-                                        {topic.description}
-                                    </p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {topic.tags.map((tag) => (
-                                            <span
-                                                key={tag}
-                                                className="px-2 py-1 text-xs rounded-full bg-white/5 text-foreground-dim border border-white/10"
+                    {learnTopics.length > 0 ? (
+                        learnTopics.map((topic, index) => (
+                            <motion.div
+                                key={topic.title}
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: index * 0.1 }}
+                            >
+                                <TiltCard>
+                                    <div
+                                        className="p-6 rounded-2xl h-full group cursor-pointer"
+                                        style={{
+                                            backgroundColor: "rgba(30, 27, 75, 0.6)",
+                                            border: "1px solid rgba(139, 92, 246, 0.3)",
+                                            backdropFilter: "blur(12px)",
+                                        }}
+                                    >
+                                        <div className="flex items-start justify-between mb-4">
+                                            <div
+                                                className="p-3 rounded-xl"
+                                                style={{ backgroundColor: `${topic.color}20` }}
                                             >
-                                                {tag}
-                                            </span>
-                                        ))}
+                                                <topic.icon
+                                                    className="w-6 h-6"
+                                                    style={{ color: topic.color }}
+                                                />
+                                            </div>
+                                            <ChevronRight className="w-5 h-5 text-foreground-dim group-hover:translate-x-1 group-hover:text-accent-cyan transition-all" />
+                                        </div>
+                                        <h3 className="text-xl font-bold text-foreground mb-2">
+                                            {topic.title}
+                                        </h3>
+                                        <p className="text-foreground-muted text-sm mb-4">
+                                            {topic.description}
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {topic.tags.map((tag) => (
+                                                <span
+                                                    key={tag}
+                                                    className="px-2 py-1 text-xs rounded-full bg-white/5 text-foreground-dim border border-white/10"
+                                                >
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            </TiltCard>
-                        </motion.div>
-                    ))}
+                                </TiltCard>
+                            </motion.div>
+                        ))
+                    ) : (
+                        <div className="col-span-2 text-center py-12">
+                            <div className="inline-block p-4 rounded-full bg-white/5 border border-white/10 mb-4">
+                                <BookOpen className="w-8 h-8 text-foreground-dim" />
+                            </div>
+                            <h3 className="text-xl font-medium text-foreground mb-2">Writing in Progress...</h3>
+                            <p className="text-foreground-dim max-w-md mx-auto">
+                                The library is being organized. Tutorials and cheatsheets are coming soon!
+                            </p>
+                        </div>
+                    )}
                 </div>
 
                 {/* CTA */}

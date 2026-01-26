@@ -58,16 +58,20 @@
   --accent-purple: #4c1d95;
   --accent-pink: #7c3aed;
 
-  /* Neutral Colors - Better contrast */
-  --foreground: #0f172a;
+  /* Neutral Colors - Greatly increased contrast */
+  --foreground: #020617;
+  /* Slate-950: Almost black */
   --foreground-muted: #1e293b;
-  --foreground-dim: #475569;
+  /* Slate-800: Very dark grey */
+  --foreground-dim: #334155;
+  /* Slate-700: Readable but diminished */
 
   /* Background */
   --background: #fafafa;
 
   /* Glassmorphism - Higher contrast for light mode */
-  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.95);
+  /* More opaque */
   --glass-border: rgba(124, 58, 237, 0.25);
 
   /* Gradients - Darker for visibility */

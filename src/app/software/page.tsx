@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Laptop2, ChevronRight, Globe, Bot, Palette, Terminal } from "lucide-react";
+import { AdBanner } from "@/components/ui/AdBanner";
 import Link from "next/link";
 import { TiltCard } from "@/components/ui/tilt-card";
 
@@ -111,6 +112,8 @@ export default function SoftwarePage() {
                         <ChevronRight className="w-4 h-4" />
                     </Link>
                 </motion.div>
+
+                <AdBanner slot="software-footer" className="mt-20" />
             </div>
         </section>
     );

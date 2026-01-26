@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Cpu, ChevronRight, CircuitBoard, Wifi, Zap } from "lucide-react";
+import { AdBanner } from "@/components/ui/AdBanner";
 import Link from "next/link";
 import { TiltCard } from "@/components/ui/tilt-card";
 
@@ -111,6 +112,8 @@ export default function HardwarePage() {
                         <ChevronRight className="w-4 h-4" />
                     </Link>
                 </motion.div>
+
+                <AdBanner slot="hardware-footer" className="mt-20" />
             </div>
         </section>
     );

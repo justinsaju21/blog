@@ -8,7 +8,7 @@ const sitemapQuery = `*[_type == "post" && !(_id in path("drafts.**"))] {
 }`
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-    const baseUrl = 'https://blogs.justinsaju.me'
+    const baseUrl = 'https://blog.justinsaju.me'
 
     // Fetch all posts
     const posts = await client.fetch(sitemapQuery)

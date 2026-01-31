@@ -77,11 +77,14 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                                     {post.readTime}
                                 </div>
                             )}
-                            {post.author && (
-                                <div className="flex items-center gap-2">
+                            {post.author && post.author.slug && (
+                                <a
+                                    href={`/author/${post.author.slug.current}`}
+                                    className="flex items-center gap-2 hover:text-accent-cyan transition-colors"
+                                >
                                     <User className="w-4 h-4" />
-                                    {post.author.name}
-                                </div>
+                                    <span className="underline-offset-4 hover:underline">{post.author.name}</span>
+                                </a>
                             )}
                         </div>
                     </header>

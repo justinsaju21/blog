@@ -17,12 +17,23 @@ export interface Post {
         };
         alt?: string;
     };
-    author?: {
-        name: string;
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        image?: any;
-        bio?: string;
-    };
+    author?: Author;
+}
+
+// Author type definition
+export interface Author {
+    _id: string;
+    name: string;
+    slug: { current: string };
+    role?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    image?: any;
+    bio?: string;
+    email?: string;
+    website?: string;
+    twitter?: string;
+    linkedin?: string;
+    github?: string;
 }
 
 // Category type

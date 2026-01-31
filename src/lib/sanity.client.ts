@@ -24,7 +24,7 @@ export const queries = {
     publishedAt,
     readTime,
     "categories": categories[]->title,
-    "author": author->{name, image},
+    "author": author->{_id, name, slug, image, role},
     mainImage
   }`,
 
@@ -39,7 +39,7 @@ export const queries = {
     readTime,
     "categories": categories[]->title,
     mainImage,
-    "author": author->{name, image, bio}
+    "author": author->{_id, name, slug, image, role, bio, email, website, twitter, linkedin, github}
   }`,
 
   // Get posts by category
@@ -60,5 +60,56 @@ export const queries = {
     title,
     "slug": slug.current,
     description
+  }`,
+
+  // Get all authors
+  allAuthors: `*[_type == "author" && !(_id in path("drafts.**"))] | order(name asc) {
+    _id,
+    name,
+    slug,
+    role,
+    image,
+    bio,
+    website,
+    twitter,
+    linkedin,
+    github
+  }`,
+
+  // Get a single author by slug with their posts
+  authorBySlug: `*[_type == "author" && slug.current == $slug][0] {
+    _id,
+    name,
+    slug,
+    role,
+    image,
+    bio,
+    email,
+    website,
+    twitter,
+    linkedin,
+    github,
+    "posts": *[_type == "post" && author._ref == ^._id] | order(publishedAt desc) {
+      _id,
+      title,
+      slug,
+      excerpt,
+      publishedAt,
+      readTime,
+      "categories": categories[]->title,
+      mainImage
+    }
+  }`,
+
+  // Get posts by author slug
+  postsByAuthor: `*[_type == "post" && author->slug.current == $authorSlug] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    excerpt,
+    publishedAt,
+    readTime,
+    "categories": categories[]->title,
+    mainImage
   }`,
 };

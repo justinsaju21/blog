@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Mail, ArrowUpRight, Heart } from "lucide-react";
+import { Github, Linkedin, Instagram, Mail, Heart } from "lucide-react";
 
 const socialLinks = [
     { href: "https://github.com/justinsaju21", icon: Github, label: "GitHub" },
@@ -12,9 +12,8 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-    { href: "/", label: "Home" },
-    { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About" },
+    { href: "/", label: "Blog" },
+    { href: "/author", label: "Authors" },
 ];
 
 export function Footer() {
@@ -45,29 +44,27 @@ export function Footer() {
                                     <span className="text-midnight font-bold text-lg">J</span>
                                 </div>
                                 <div>
-                                    <span className="text-lg font-bold text-foreground">Justin Jacob</span>
-                                    <span className="text-lg font-light text-foreground-dim ml-1">Saju</span>
+                                    <span className="text-lg font-bold text-foreground">Justin&apos;s</span>
+                                    <span className="text-lg font-light text-accent-purple ml-1">Blog</span>
                                 </div>
                             </div>
                         </Link>
-                        <p className="text-foreground-muted body-md mb-6 max-w-xs">
-                            Engineering student passionate about embedded systems, VLSI, and building innovative solutions.
+                        <p className="text-foreground-dim text-sm leading-relaxed mb-6">
+                            Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions.
                         </p>
                         {/* Social links */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex gap-3">
                             {socialLinks.map((social) => (
-                                <motion.a
+                                <a
                                     key={social.label}
                                     href={social.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    whileHover={{ scale: 1.1, y: -2 }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="p-2.5 rounded-xl glass hover:border-accent-cyan/40 transition-colors group"
+                                    className="p-2.5 rounded-lg bg-glass-bg border border-glass-border hover:border-accent-cyan/50 hover:bg-accent-cyan/10 transition-all group"
                                     aria-label={social.label}
                                 >
                                     <social.icon className="w-4 h-4 text-foreground-muted group-hover:text-accent-cyan transition-colors" />
-                                </motion.a>
+                                </a>
                             ))}
                         </div>
                     </motion.div>
@@ -79,54 +76,72 @@ export function Footer() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                     >
-                        <h4 className="text-foreground font-semibold mb-6">Quick Links</h4>
+                        <h3 className="text-foreground font-semibold mb-6">Quick Links</h3>
                         <ul className="space-y-3">
                             {footerLinks.map((link) => (
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="group flex items-center gap-2 text-foreground-muted hover:text-foreground transition-colors"
+                                        className="text-foreground-muted hover:text-accent-cyan transition-colors text-sm"
                                     >
-                                        <span className="w-1.5 h-1.5 rounded-full bg-accent-cyan/50 group-hover:bg-accent-cyan transition-colors" />
                                         {link.label}
-                                        <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </motion.div>
 
-                    {/* Newsletter mini */}
+                    {/* External Links */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        <h4 className="text-foreground font-semibold mb-6">Stay Updated</h4>
-                        <p className="text-foreground-muted text-sm mb-4">
-                            Get notified when new articles are published.
-                        </p>
-                        <Link
-                            href="#newsletter"
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-gradient-to-r from-accent-cyan/20 to-accent-blue/20 border border-accent-cyan/30 text-accent-cyan text-sm font-medium hover:border-accent-cyan/50 transition-colors group"
-                        >
-                            Subscribe to newsletter
-                            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                        </Link>
+                        <h3 className="text-foreground font-semibold mb-6">More</h3>
+                        <ul className="space-y-3">
+                            <li>
+                                <a
+                                    href="https://justinsaju.me"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-foreground-muted hover:text-accent-cyan transition-colors text-sm"
+                                >
+                                    Main Website
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://portfolio.justinsaju.me"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-foreground-muted hover:text-accent-cyan transition-colors text-sm"
+                                >
+                                    Portfolio
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="https://projects.justinsaju.me"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-foreground-muted hover:text-accent-cyan transition-colors text-sm"
+                                >
+                                    Projects Hub
+                                </a>
+                            </li>
+                        </ul>
                     </motion.div>
                 </div>
 
                 {/* Bottom bar */}
                 <div className="pt-8 border-t border-glass-border">
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <p className="text-foreground-dim text-sm flex items-center gap-1.5">
-                            © {new Date().getFullYear()} Justin Jacob Saju. Made with
-                            <Heart className="w-3.5 h-3.5 text-accent-pink fill-accent-pink" />
-                            at SRM IST KTR
+                    <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                        <p className="text-foreground-dim text-sm flex items-center gap-1">
+                            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by Justin Jacob Saju
                         </p>
                         <p className="text-foreground-dim text-xs">
-                            Built with Next.js + Sanity
+                            © {new Date().getFullYear()} All rights reserved.
                         </p>
                     </div>
                 </div>

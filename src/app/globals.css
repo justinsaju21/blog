@@ -45,38 +45,48 @@
 }
 
 /* ===== LIGHT MODE ===== */
+/* ===== PREMIUM LIGHT MODE ===== */
 [data-theme="light"] {
-  /* Core Colors */
+  /* Core Colors - Cool Slate Tone */
   --midnight: #f8fafc;
+  /* Slate 50 */
   --midnight-light: #f1f5f9;
+  /* Slate 100 */
   --cobalt: #e2e8f0;
+  /* Slate 200 */
   --cobalt-light: #cbd5e1;
+  /* Slate 300 */
 
-  /* Accent Colors - Darker for better contrast on white */
-  --accent-cyan: #6d28d9;
-  --accent-blue: #5b21b6;
-  --accent-purple: #4c1d95;
-  --accent-pink: #7c3aed;
+  /* Accent Colors - Vibrant but refined */
+  --accent-cyan: #7c3aed;
+  /* Purple 600 */
+  --accent-blue: #6366f1;
+  /* Indigo 500 */
+  --accent-purple: #8b5cf6;
+  /* Violet 500 */
+  --accent-pink: #d946ef;
+  /* Fuchsia 500 */
 
-  /* Neutral Colors - Greatly increased contrast */
-  --foreground: #020617;
-  /* Slate-950: Almost black */
-  --foreground-muted: #1e293b;
-  /* Slate-800: Very dark grey */
-  --foreground-dim: #334155;
-  /* Slate-700: Readable but diminished */
+  /* Neutral Colors - Soft Contrast */
+  --foreground: #0f172a;
+  /* Slate 900 */
+  --foreground-muted: #334155;
+  /* Slate 700 */
+  --foreground-dim: #64748b;
+  /* Slate 500 */
 
-  /* Background */
-  --background: #fafafa;
+  /* Background - Clean Off-White */
+  --background: #ffffff;
+  /* Pure White for clean look */
 
-  /* Glassmorphism - Higher contrast for light mode */
-  --glass-bg: rgba(255, 255, 255, 0.95);
-  /* More opaque */
-  --glass-border: rgba(124, 58, 237, 0.25);
+  /* Glassmorphism - Icy & Crisp */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(226, 232, 240, 0.8);
+  /* Slate 200 */
 
-  /* Gradients - Darker for visibility */
-  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%);
-  --gradient-accent: linear-gradient(135deg, #6d28d9 0%, #4c1d95 100%);
+  /* Gradients - Subtle & Modern */
+  --gradient-primary: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+  --gradient-accent: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
 }
 
 /* ===== BASE STYLES ===== */

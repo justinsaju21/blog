@@ -33,10 +33,10 @@ export function Navbar() {
             width: isScrolled ? "95%" : "100%",
             maxWidth: isScrolled ? "800px" : "none",
             borderRadius: isScrolled ? "9999px" : "0",
-            backgroundColor: isScrolled ? "rgba(30, 27, 75, 0.8)" : "transparent",
+            backgroundColor: isScrolled ? "var(--glass-bg)" : "transparent",
             backdropFilter: isScrolled ? "blur(16px)" : "none",
-            border: isScrolled ? "1px solid rgba(255, 255, 255, 0.1)" : "none",
-            boxShadow: isScrolled ? "0 0 40px -10px rgba(124, 58, 237, 0.3)" : "none",
+            border: isScrolled ? "1px solid var(--glass-border)" : "none",
+            boxShadow: isScrolled ? "0 0 40px -10px rgba(124, 58, 237, 0.15)" : "none",
             paddingTop: isScrolled ? "0" : "1rem",
           }}
           className="pointer-events-auto transition-all duration-500 ease-out"
@@ -52,14 +52,14 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2.5 group">
               <div
-                style={{ backgroundColor: "#a78bfa" }}
+                style={{ backgroundColor: "var(--accent-cyan)" }}
                 className="flex items-center justify-center w-9 h-9 rounded-lg font-bold text-lg group-hover:scale-105 transition-transform"
               >
-                <span style={{ color: "#030014" }}>J</span>
+                <span style={{ color: "var(--background)" }}>J</span>
               </div>
               <div className="flex items-baseline gap-1.5">
                 <span style={{ color: "var(--foreground)" }} className="font-bold text-lg tracking-tight">Justin&apos;s</span>
-                <span style={{ color: "#a78bfa" }} className="font-bold text-lg tracking-tight">Blog</span>
+                <span style={{ color: "var(--accent-cyan)" }} className="font-bold text-lg tracking-tight">Blog</span>
               </div>
             </Link>
 
@@ -111,7 +111,7 @@ export function Navbar() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-40 md:hidden"
-          style={{ backgroundColor: "rgba(3, 0, 20, 0.95)", backdropFilter: "blur(20px)" }}
+          style={{ backgroundColor: "var(--glass-bg)", backdropFilter: "blur(20px)" }}
         >
           <div className="flex flex-col items-center justify-center h-full gap-8">
             {navLinks.map((link) => (

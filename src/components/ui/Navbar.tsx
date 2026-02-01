@@ -75,6 +75,13 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              <a
+                href="https://justinsaju.me"
+                style={{ color: "var(--foreground-muted)" }}
+                className="text-sm font-medium hover:opacity-80 transition-opacity"
+              >
+                ← Gateway
+              </a>
               <ThemeToggle />
             </div>
 
@@ -118,6 +125,14 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <a
+              href="https://justinsaju.me"
+              onClick={() => setMobileMenuOpen(false)}
+              style={{ color: "var(--foreground)" }}
+              className="text-2xl font-semibold hover:text-purple-400 transition-colors"
+            >
+              ← Back to Gateway
+            </a>
           </div>
         </motion.div>
       )}

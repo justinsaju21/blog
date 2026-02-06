@@ -136,7 +136,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 placeholder="Search articles..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan/50 focus:bg-[var(--midnight-light)]/80 transition-all"
+                                className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan/50 focus:bg-midnight-light/80 transition-all"
                             />
                         </div>
 
@@ -147,11 +147,11 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={selectedCategory}
                                     onChange={(e) => setSelectedCategory(e.target.value)}
-                                    className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-[var(--midnight-light)]/80 transition-colors"
+                                    className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight-light/80 transition-colors"
                                 >
-                                    <option value="all" className="bg-midnight text-foreground">All Topics</option>
+                                    <option value="all" className="bg-background text-foreground">All Topics</option>
                                     {uniqueCategories.map(cat => (
-                                        <option key={cat} value={cat} className="bg-midnight text-foreground">{cat}</option>
+                                        <option key={cat} value={cat} className="bg-background text-foreground">{cat}</option>
                                     ))}
                                 </select>
                                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-foreground-dim pointer-events-none" />
@@ -163,11 +163,11 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={selectedAuthor}
                                     onChange={(e) => setSelectedAuthor(e.target.value)}
-                                    className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-[var(--midnight-light)]/80 transition-colors"
+                                    className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight-light/80 transition-colors"
                                 >
-                                    <option value="all" className="bg-midnight text-foreground">All Authors</option>
+                                    <option value="all" className="bg-background text-foreground">All Authors</option>
                                     {uniqueAuthors.map(a => (
-                                        <option key={a.id} value={a.id} className="bg-midnight text-foreground">{a.name}</option>
+                                        <option key={a.id} value={a.id} className="bg-background text-foreground">{a.name}</option>
                                     ))}
                                 </select>
                                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-foreground-dim pointer-events-none" />
@@ -179,11 +179,11 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value as SortOption)}
-                                    className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-[var(--midnight-light)]/80 transition-colors"
+                                    className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight-light/80 transition-colors"
                                 >
-                                    <option value="newest" className="bg-midnight text-foreground">Newest First</option>
-                                    <option value="oldest" className="bg-midnight text-foreground">Oldest First</option>
-                                    <option value="alpha" className="bg-midnight text-foreground">Title (A-Z)</option>
+                                    <option value="newest" className="bg-background text-foreground">Newest First</option>
+                                    <option value="oldest" className="bg-background text-foreground">Oldest First</option>
+                                    <option value="alpha" className="bg-background text-foreground">Title (A-Z)</option>
                                 </select>
                                 <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3 h-3 text-foreground-dim pointer-events-none" />
                             </div>

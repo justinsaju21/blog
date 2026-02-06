@@ -136,7 +136,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 placeholder="Search articles..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full bg-midnight/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan/50 focus:bg-midnight/80 transition-all"
+                                className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan/50 focus:bg-[var(--midnight-light)]/80 transition-all"
                             />
                         </div>
 
@@ -147,7 +147,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={selectedCategory}
                                     onChange={(e) => setSelectedCategory(e.target.value)}
-                                    className="w-full bg-midnight/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight/80 transition-colors"
+                                    className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-[var(--midnight-light)]/80 transition-colors"
                                 >
                                     <option value="all" className="bg-midnight text-foreground">All Topics</option>
                                     {uniqueCategories.map(cat => (
@@ -163,7 +163,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={selectedAuthor}
                                     onChange={(e) => setSelectedAuthor(e.target.value)}
-                                    className="w-full bg-midnight/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight/80 transition-colors"
+                                    className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-[var(--midnight-light)]/80 transition-colors"
                                 >
                                     <option value="all" className="bg-midnight text-foreground">All Authors</option>
                                     {uniqueAuthors.map(a => (
@@ -179,7 +179,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value as SortOption)}
-                                    className="w-full bg-midnight/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight/80 transition-colors"
+                                    className="w-full bg-[var(--midnight-light)]/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-[var(--midnight-light)]/80 transition-colors"
                                 >
                                     <option value="newest" className="bg-midnight text-foreground">Newest First</option>
                                     <option value="oldest" className="bg-midnight text-foreground">Oldest First</option>

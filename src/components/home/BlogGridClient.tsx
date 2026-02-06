@@ -224,7 +224,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                                 </div>
 
                                                 {/* Title */}
-                                                <h3 className="heading-sm mb-4 group-hover:text-accent-cyan transition-colors duration-300">
+                                                <h3 className="heading-sm text-foreground mb-4 group-hover:text-accent-cyan transition-colors duration-300">
                                                     {post.title}
                                                 </h3>
 
@@ -292,7 +292,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                         <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-accent-cyan/20 to-accent-purple/20 mb-6">
                             {searchQuery ? <Search className="w-10 h-10 text-accent-cyan" /> : <Pen className="w-10 h-10 text-accent-cyan" />}
                         </div>
-                        <h3 className="heading-sm mb-3">{searchQuery ? "No articles found" : "Coming Soon"}</h3>
+                        <h3 className="heading-sm text-foreground mb-3">{searchQuery ? "No articles found" : "Coming Soon"}</h3>
                         <p className="text-foreground-muted body-md max-w-md mx-auto mb-8">
                             {searchQuery ? "Try adjusting your search or filters." : "I'm working on my first articles. Subscribe to get notified when they're published!"}
                         </p>

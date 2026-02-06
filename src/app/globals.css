@@ -164,6 +164,27 @@ body {
   border: 1px solid var(--glass-border);
 }
 
+/* Input/Select Background - Works in both themes */
+.input-bg {
+  background: rgba(30, 27, 75, 0.5);
+  /* Dark mode: semi-transparent indigo */
+}
+
+.input-bg:hover,
+.input-bg:focus {
+  background: rgba(30, 27, 75, 0.8);
+}
+
+[data-theme="light"] .input-bg {
+  background: rgba(241, 245, 249, 0.7);
+  /* Light mode: Slate 100 with transparency */
+}
+
+[data-theme="light"] .input-bg:hover,
+[data-theme="light"] .input-bg:focus {
+  background: rgba(241, 245, 249, 0.95);
+}
+
 /* Premium Glass Card with hover effects */
 .glass-card {
   background: var(--glass-bg);

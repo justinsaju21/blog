@@ -136,7 +136,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 placeholder="Search articles..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan/50 focus:bg-midnight-light/80 transition-all"
+                                className="w-full input-bg border border-glass-border rounded-xl py-2.5 pl-10 pr-4 text-sm text-foreground placeholder:text-foreground-dim focus:outline-none focus:border-accent-cyan/50 transition-all"
                             />
                         </div>
 
@@ -147,7 +147,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={selectedCategory}
                                     onChange={(e) => setSelectedCategory(e.target.value)}
-                                    className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight-light/80 transition-colors"
+                                    className="w-full input-bg border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer transition-colors"
                                 >
                                     <option value="all" className="bg-background text-foreground">All Topics</option>
                                     {uniqueCategories.map(cat => (
@@ -163,7 +163,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={selectedAuthor}
                                     onChange={(e) => setSelectedAuthor(e.target.value)}
-                                    className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight-light/80 transition-colors"
+                                    className="w-full input-bg border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer transition-colors"
                                 >
                                     <option value="all" className="bg-background text-foreground">All Authors</option>
                                     {uniqueAuthors.map(a => (
@@ -179,7 +179,7 @@ export function BlogGridClient({ posts }: BlogGridClientProps) {
                                 <select
                                     value={sortBy}
                                     onChange={(e) => setSortBy(e.target.value as SortOption)}
-                                    className="w-full bg-midnight-light/50 border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer hover:bg-midnight-light/80 transition-colors"
+                                    className="w-full input-bg border border-glass-border rounded-xl py-2.5 pl-10 pr-8 text-sm text-foreground appearance-none focus:outline-none focus:border-accent-cyan/50 cursor-pointer transition-colors"
                                 >
                                     <option value="newest" className="bg-background text-foreground">Newest First</option>
                                     <option value="oldest" className="bg-background text-foreground">Oldest First</option>

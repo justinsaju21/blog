@@ -8,8 +8,10 @@ import { useState } from "react";
 import { ThemeToggle } from "../ThemeToggle";
 
 const navLinks = [
-  { href: "/", label: "Blog" },
-  { href: "/author", label: "Authors" },
+  { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
+  { href: "/author/Justin%20Jacob%20Saju", label: "Author" },
+  { href: "https://justinsaju.me", label: "Gateway" },
 ];
 
 export function Navbar() {
@@ -50,39 +52,68 @@ export function Navbar() {
             className="flex items-center justify-between transition-all duration-500"
           >
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div
-                style={{ backgroundColor: "var(--accent-cyan)" }}
-                className="flex items-center justify-center w-9 h-9 rounded-lg font-bold text-lg group-hover:scale-105 transition-transform"
+            <Link href="/" className="flex items-center gap-2.5 group" style={{
+              fontFamily: "'Playfair Display', serif",
+              fontSize: 20,
+              color: 'var(--text-primary)',
+              textDecoration: 'none',
+              letterSpacing: '0.02em',
+            }}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ width: 22, height: 22, marginRight: 8, display: 'inline-block', verticalAlign: 'middle' }}
               >
-                <span style={{ color: "var(--background)" }}>J</span>
-              </div>
-              <div className="flex items-baseline gap-1.5">
-                <span style={{ color: "var(--foreground)" }} className="font-bold text-lg tracking-tight">Justin&apos;s</span>
-                <span style={{ color: "var(--accent-cyan)" }} className="font-bold text-lg tracking-tight">Blog</span>
-              </div>
+                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+              </svg>
+              <span style={{ verticalAlign: 'middle', fontWeight: 600 }}>Echo Blogs</span>
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-8">
+            <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2 gap-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  style={{ color: "var(--foreground-muted)" }}
-                  className="text-sm font-medium hover:opacity-80 transition-opacity"
+                  style={{ color: "var(--text-secondary)" }}
+                  className="text-sm font-medium hover:text-[var(--text-primary)] transition-colors"
                 >
                   {link.label}
                 </Link>
               ))}
-              <a
-                href="https://justinsaju.me"
-                style={{ color: "var(--foreground-muted)" }}
-                className="text-sm font-medium hover:opacity-80 transition-opacity"
-              >
-                ← Gateway
-              </a>
+            </div>
+
+            {/* Right Actions */}
+            <div className="hidden md:flex items-center gap-4">
+              <Link href="/saved" style={{ color: "var(--text-secondary)" }} className="hover:text-[var(--text-primary)] transition-colors" aria-label="Saved Posts">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/></svg>
+              </Link>
+              <Link href="/blog" style={{ color: "var(--text-secondary)" }} className="hover:text-[var(--text-primary)] transition-colors" aria-label="Search Articles">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              </Link>
               <ThemeToggle />
+              <Link
+                href="/submit"
+                style={{
+                  display: 'block',
+                  padding: '8px 20px',
+                  background: 'var(--text-primary)',
+                  color: 'var(--bg-primary)',
+                  borderRadius: 8,
+                  fontSize: 13,
+                  fontWeight: 500,
+                  textDecoration: 'none',
+                  letterSpacing: '0.04em',
+                }}
+                className="hover:scale-105 transition-transform"
+              >
+                Submit
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}

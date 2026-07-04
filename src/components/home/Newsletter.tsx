@@ -38,7 +38,7 @@ export function Newsletter() {
             setStatus('success');
             setEmail("");
 
-        } catch (_error) {
+        } catch {
             setStatus('error');
             setMessage('Failed to subscribe. Please try again.');
         }

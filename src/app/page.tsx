@@ -1,15 +1,18 @@
 import { BlogGrid } from "@/components/home/BlogGrid";
 import { Newsletter } from "@/components/home/Newsletter";
 import { AdBanner } from "@/components/ui/AdBanner";
-import { BlogHeader } from "@/components/BlogHeader";
+import { HeroSection } from "@/components/home/HeroSection";
+
+export const revalidate = 1800;
 
 export default function Home() {
   return (
-    <div className="min-h-screen pt-32 pb-20 px-6" style={{ backgroundColor: "var(--background)" }}>
-      <div className="max-w-5xl mx-auto">
-        <BlogHeader />
+    <div style={{ background: 'var(--bg-primary)', minHeight: '100vh' }}>
+      <HeroSection />
+      
+      <div className="max-w-5xl mx-auto px-6 pb-24">
         <AdBanner slot="after-hero" />
-        <BlogGrid />
+        <BlogGrid limit={6} hideSearch={true} />
         <Newsletter />
       </div>
     </div>

@@ -1,5 +1,9 @@
-import { redirect } from "next/navigation";
+import { BlogGrid } from "@/components/home/BlogGrid";
 
 export default function BlogPage() {
-    redirect("/");
+    return (
+        <div style={{ background: 'var(--bg-primary)', minHeight: '100vh', paddingTop: '80px' }}>
+            <BlogGrid />
+        </div>
+    );
 }

@@ -38,16 +38,26 @@ export function Footer() {
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                     >
-                        <Link href="/" className="inline-block mb-4">
-                            <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-accent-cyan to-accent-blue flex items-center justify-center">
-                                    <span className="text-midnight font-bold text-lg">J</span>
-                                </div>
-                                <div>
-                                    <span className="text-lg font-bold text-foreground">Justin&apos;s</span>
-                                    <span className="text-lg font-light text-accent-purple ml-1">Blog</span>
-                                </div>
-                            </div>
+                        <Link href="/" className="flex items-center gap-2.5 group inline-block mb-4" style={{
+                            fontFamily: "'Playfair Display', serif",
+                            fontSize: 24,
+                            color: 'var(--text-primary)',
+                            textDecoration: 'none',
+                            letterSpacing: '0.02em',
+                        }}>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                style={{ width: 28, height: 28, marginRight: 8, display: 'inline-block', verticalAlign: 'middle' }}
+                            >
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+                            </svg>
+                            <span style={{ verticalAlign: 'middle', fontWeight: 600 }}>Echo Blogs</span>
                         </Link>
                         <p className="text-foreground-dim text-sm leading-relaxed mb-6">
                             Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions.
@@ -140,9 +150,13 @@ export function Footer() {
                         <p className="text-foreground-dim text-sm flex items-center gap-1">
                             Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by Justin Jacob Saju
                         </p>
-                        <p className="text-foreground-dim text-xs">
-                            © {new Date().getFullYear()} All rights reserved.
-                        </p>
+                        <div className="flex flex-col sm:flex-row items-center gap-4 text-foreground-dim text-xs">
+                            <Link href="/privacy" className="hover:text-accent-cyan transition-colors">Privacy Policy</Link>
+                            <span className="hidden sm:inline">•</span>
+                            <Link href="/terms" className="hover:text-accent-cyan transition-colors">Terms of Service</Link>
+                            <span className="hidden sm:inline">•</span>
+                            <span>© {new Date().getFullYear()} Echo Blogs. All rights reserved.</span>
+                        </div>
                     </div>
                 </div>
             </div>

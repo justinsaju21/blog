@@ -1,27 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/Navbar";
 import { Footer } from "@/components/ui/Footer";
 import GoogleAdsense from "@/components/GoogleAdsense";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import { CursorProvider } from "@/components/ui/CustomCursor";
+import { SavedProvider } from "@/components/SavedContext";
+import LenisProvider from "@/components/ui/LenisProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
-  title: "Justin Jacob Saju | Engineering Ideas & Tech Insights",
-  description: "Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions. A blog by Justin Jacob Saju, engineering student at SRM IST KTR.",
-  keywords: ["engineering", "embedded systems", "VLSI", "5G", "AI", "technology", "SRM IST", "blog"],
+  title: "Echo Blogs | Technical Insights",
+  description: "Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions.",
+  keywords: ["engineering", "embedded systems", "VLSI", "5G", "AI", "technology", "blog"],
   authors: [{ name: "Justin Jacob Saju" }],
   openGraph: {
-    title: "Justin Jacob Saju | Engineering Ideas & Tech Insights",
+    title: "Echo Blogs | Technical Insights",
     description: "Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions.",
     type: "website",
   },
@@ -31,7 +28,7 @@ export const metadata: Metadata = {
   },
 };
 
-import { ThemeProvider } from "@/components/ThemeProvider";
+
 
 export default function RootLayout({
   children,
@@ -40,13 +37,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${inter.variable} ${playfair.variable} antialiased`}
       >
         <ThemeProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <CursorProvider>
+            <SavedProvider>
+              <LenisProvider>
+                <Navbar />
+                <main>{children}</main>
+                <Footer />
+              </LenisProvider>
+            </SavedProvider>
+          </CursorProvider>
         </ThemeProvider>
         <GoogleAdsense pId="ca-pub-6510223775923718" />
       </body>

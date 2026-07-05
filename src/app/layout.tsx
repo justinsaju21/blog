@@ -13,12 +13,12 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
-  title: "Echo Blogs | Technical Insights",
+  title: "ECHO Blogs | Justin Jacob Saju",
   description: "Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions.",
   keywords: ["engineering", "embedded systems", "VLSI", "5G", "AI", "technology", "blog"],
   authors: [{ name: "Justin Jacob Saju" }],
   openGraph: {
-    title: "Echo Blogs | Technical Insights",
+    title: "ECHO Blogs | Justin Jacob Saju",
     description: "Exploring embedded systems, VLSI, 5G communications, and AI-driven solutions.",
     type: "website",
   },

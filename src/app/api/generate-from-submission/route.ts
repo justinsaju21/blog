@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSubmissions } from '@/lib/sheets';
-import { generatePostContent } from '@/lib/gemini';
+import { generatePostContent, PartialPost } from '@/lib/gemini';
+
+export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
     try {

@@ -7,7 +7,7 @@ function getAuth() {
   return new google.auth.GoogleAuth({
     credentials: creds,
     scopes: [
-      'https://www.googleapis.com/auth/spreadsheets.readonly',
+      'https://www.googleapis.com/auth/spreadsheets',
     ],
   })
 }
@@ -253,3 +253,116 @@ export async function updateSubmissionStatus(id: string, status: 'approved' | 'r
     return false;
   }
 }
+
+export async function deleteSubmission(id: string): Promise<boolean> {
+  try {
+    const sheets = await getSheetsClient()
+    const meta = await sheets.spreadsheets.get({ spreadsheetId: SHEET_ID() })
+    const sheet = meta.data.sheets?.find(s => s.properties?.title === 'BlogSubmissions')
+    if (sheet?.properties?.sheetId === undefined) return false
+    const sheetId = sheet.properties.sheetId
+    
+    const res = await sheets.spreadsheets.values.get({
+      spreadsheetId: SHEET_ID(),
+      range: 'BlogSubmissions!A:A',
+    })
+    
+    const rows = res.data.values
+    if (!rows) return false
+    
+    const rowIndex = rows.findIndex(row => row[0] === id)
+    if (rowIndex === -1) return false
+    
+    await sheets.spreadsheets.batchUpdate({
+      spreadsheetId: SHEET_ID(),
+      requestBody: {
+        requests: [{ deleteDimension: { range: { sheetId: sheetId, dimension: 'ROWS', startIndex: rowIndex, endIndex: rowIndex + 1 } } }]
+      }
+    })
+    
+    return true
+  } catch (error) {
+    console.error("Error deleting submission:", error)
+    return false
+  }
+}
+
+export async function updatePost(id: string, updates: Partial<Post>): Promise<boolean> {
+  try {
+    const sheets = await getSheetsClient()
+    const res = await sheets.spreadsheets.values.get({
+      spreadsheetId: SHEET_ID(),
+      range: 'BlogPosts!A:K',
+    })
+    
+    const rows = res.data.values
+    if (!rows) return false
+    
+    const rowIndex = rows.findIndex(row => row[0] === id)
+    if (rowIndex === -1) return false
+    
+    const actualRowNumber = rowIndex + 1
+    const currentRow = rows[rowIndex]
+    const updatedPost = { ...rowToPost(currentRow), ...updates }
+    
+    const rowData = [
+      updatedPost.id,
+      updatedPost.title,
+      updatedPost.slug,
+      updatedPost.excerpt,
+      updatedPost.body,
+      updatedPost.publishedAt,
+      updatedPost.readTime,
+      updatedPost.category,
+      updatedPost.authorName,
+      updatedPost.authorImage || '',
+      updatedPost.cloudinaryId || '',
+    ]
+    
+    await sheets.spreadsheets.values.update({
+      spreadsheetId: SHEET_ID(),
+      range: `BlogPosts!A${actualRowNumber}:K${actualRowNumber}`,
+      valueInputOption: 'RAW',
+      requestBody: { values: [rowData] },
+    })
+    
+    return true
+  } catch (error) {
+    console.error("Error updating post:", error)
+    return false
+  }
+}
+
+export async function deletePost(id: string): Promise<boolean> {
+  try {
+    const sheets = await getSheetsClient()
+    const meta = await sheets.spreadsheets.get({ spreadsheetId: SHEET_ID() })
+    const sheet = meta.data.sheets?.find(s => s.properties?.title === 'BlogPosts')
+    if (sheet?.properties?.sheetId === undefined) return false
+    const sheetId = sheet.properties.sheetId
+    
+    const res = await sheets.spreadsheets.values.get({
+      spreadsheetId: SHEET_ID(),
+      range: 'BlogPosts!A:A',
+    })
+    
+    const rows = res.data.values
+    if (!rows) return false
+    
+    const rowIndex = rows.findIndex(row => row[0] === id)
+    if (rowIndex === -1) return false
+    
+    await sheets.spreadsheets.batchUpdate({
+      spreadsheetId: SHEET_ID(),
+      requestBody: {
+        requests: [{ deleteDimension: { range: { sheetId: sheetId, dimension: 'ROWS', startIndex: rowIndex, endIndex: rowIndex + 1 } } }]
+      }
+    })
+    
+    return true
+  } catch (error) {
+    console.error("Error deleting post:", error)
+    return false
+  }
+}
+
